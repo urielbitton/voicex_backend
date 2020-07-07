@@ -1,0 +1,10 @@
+{
+  "name": "voicex_backend",
+  "version": "0.0.1",
+  "description": "Express and MongoDB backend for VoiceX application",
+  "main": "index.js",
+  "repository": "git@github.com:urielbitton/voicex_backend.git",
+  "author": "FJKhan <fjgenus@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
