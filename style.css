@@ -1,0 +1,2140 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Lato', sans-serif;
+}
+ 
+:root {
+    --color: #7700ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2);
+    --btnshadow: 0px 18px 22px -16px rgba(0,0,0,0.36);
+    --btnhover: 0px 22px 26px -15px rgba(0,0,0,0.6);
+    --wideshadow: 0px 1px 20px rgba(0,0,0,0.4);
+    --grad: linear-gradient(324deg, rgba(119,0,255,1) 0%, rgba(41,4,255,1) 100%);
+    --txtgrad: linear-gradient(-90deg, rgba(119,0,255,1) 0%, rgba(41,4,255,1) 100%);
+} 
+  
+.grid {
+    position: relative;
+    margin: auto;
+    width: 1200px;
+    min-height: 90vh; 
+}
+.clear {
+    clear: both;
+}
+
+h1,h2,h3,h4,h5,h6,i,p,li,button,a,span,small,img,section,input {
+    position: relative;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: auto;
+}
+i {
+    transition: all 0.3s;
+}
+img {
+    object-fit: cover;
+}
+hr {
+    border: none;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+button {
+    outline: none;
+    position: relative;
+    border-radius: 40px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    background: var(--color);
+    color: #fff;
+}
+em {
+    font-style: normal;
+} 
+a {
+    text-decoration: none;
+    color: var(--color);
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s;
+}
+a:hover {
+    text-decoration: underline;
+}
+p {
+    line-height: 1.8;
+}
+th {
+    outline: none;
+    cursor: pointer;
+}
+input, textarea {
+    outline: none;
+    box-sizing: border-box;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.close {
+    position: absolute;
+    padding: 5px;
+    font-style: normal;
+    font-weight: 600;
+    transform: scale(1.4);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s;
+    z-index: 900;
+}
+.close::before {
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    transform: rotate(-43deg);
+    content: '|';
+}
+.close::after {
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    content: '|';
+    transform: rotate(43deg);
+}
+.minimize {
+    position: absolute;
+    color: #fff;
+    z-index: 100;
+    cursor: pointer;
+}
+::selection {
+    background: var(--color);
+    color: white;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+} 
+::-webkit-scrollbar-track {
+    background: #eee; 
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color);
+    border-radius: 50px;
+}
+.spacers {
+    height: 20px;
+}
+.spacer {
+    height: 50px;
+}
+.spacerl {
+    height: 100px;
+}
+
+
+   
+.main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(images/mainbg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+}
+.sidebar {
+    position: fixed;
+    width: 100px;
+    height: 90%;
+    bottom: 0;
+    top: 0;
+    left: 20px;
+    margin: auto;
+    background: rgba(255,255,255,0.93);
+    text-align: center;
+    z-index: 990;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 70px;
+    box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+    transform: scaleY(1);
+    animation: intro 0.2s linear;
+}
+@keyframes intro {
+    from{transform: scaleY(0.9)}
+    to{transform: scaleY(1)}
+}
+.sidebargripcont {
+    position: absolute;
+    margin: auto;
+    right: 0px;
+    height: 90%;
+    width: 40px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+.sidebar .sidebargrip {
+    position: absolute;
+    padding: 5px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 23px;
+    color: #999;
+}
+.logo {
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+.logo img {
+    width: 60px;
+    height: 55px;
+    object-fit: fill;
+    filter: brightness(115%)
+}
+.sidecont {
+    position: relative;
+    margin-top: 20px;
+    padding: 20px 0;
+    min-height: 80%;
+}
+.sidecont .menuicon {
+    position: relative;
+    left: -1px;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    margin: 40px auto;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+} 
+.sidecont .menuicon small {
+    position: absolute;
+    top: -2px;
+    left: 20px;
+    padding: 4px 9px;
+    border-radius: 30px;
+    background: var(--grad);
+    color: #fff;
+    transition: all 0.3s;
+    transition-delay: 0s;
+    opacity: 0;
+}
+.sidecont .menuicon:hover small {
+    opacity: 1;
+    left: 30px;
+    transition-delay: 0.8s;
+}
+.sidecont .proftab {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.proftab img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: auto;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.6);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.sidecont div:last-child {
+    cursor: auto;
+}
+.sidecont .menuicon i {
+    opacity: 0.2;
+    font-size: 22px;
+}
+.sidecont .menuicon:hover i {
+    opacity: 1;
+    color: var(--color);
+}
+.sidecont .activetab i {
+    color: var(--color);
+    opacity: 1;
+}
+.addprojbtncont {
+    position: relative;
+} 
+.addprojbtn {
+    padding: 25px 12px;
+    font-size: 15px;
+    background: linear-gradient(334deg, rgba(119,0,255,1) 30%, rgba(41,4,255,1) 100%);
+    box-shadow: 0px 20px 26px -11px rgba(119,0,255,0.5);
+}
+.addprojbtn:hover {
+    box-shadow: 0px 26px 26px -11px rgba(119,0,255,0.7);
+}
+.addprojbtn i {
+    color: #fff;
+}
+.addprojbtn:hover i {
+    color: #fff;
+}
+.addprojbtn small {
+    position: absolute;
+    top: 22px;
+    left: 30px;
+    padding: 4px 9px;
+    border-radius: 30px;
+    background: var(--grad);
+    color: #fff;
+    transition: all 0.3s;
+    transition-delay: 0s;
+    opacity: 0;
+    white-space: nowrap;
+}
+.addprojbtn:hover small {
+    opacity: 1;
+    left: 40px;
+    transition-delay: 1s;
+}
+
+ 
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    width: 700px;
+    height: 60px;
+    border-radius: 40px;
+    margin: auto;
+    background: rgba(255,255,255,0.93);
+    z-index: 900;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.searchdiv {
+    position: relative;
+    float: left;
+    width: 320px;
+    height: 100%;
+    margin-left: 40px;
+} 
+.searchdiv input {
+    width: 280px;
+    top: 0px;
+    border: none;
+    height: 60px;
+    color: #333;
+    float: left;
+    background: none;
+    transition: all 0.3s;
+    padding-left: 10px;
+}
+.searchdiv input::placeholder {
+    color: #aaa;
+}
+.searchdiv i {
+    float: left;
+    color: #aaa;
+    top: 23px;
+    margin-right: 10px;
+}
+.tools {
+    position: relative;
+    float: right;
+    padding: 15px;
+    margin-right: 20px;
+    border-left: 1px solid #f5f5f5;
+}
+.tools img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.tools > div {
+    margin: auto 10px;
+    top: 2px;
+    padding: 5px;
+    cursor: pointer;
+    float: left;
+}
+.tools i {
+    font-size: 20px;
+    opacity: 0.4;
+}
+.tools i:hover {
+    color: var(--color);
+    opacity: 1;
+}
+.notifdot {
+    position: absolute;
+    transform: translate(17px,-25px);
+    width: 6px;
+    height: 6px;
+    background: var(--color);
+    border-radius: 100%;
+    z-index: 100;
+}
+
+.home {
+    position: relative;
+    margin-top: 50px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+.monthlyprog {
+    position: fixed;
+    top: 0;
+    height: 3px;
+    width: 0;
+    background: var(--color); 
+    transition: all 1.5s;
+} 
+.app {
+    position: relative;
+    padding: 50px 0;
+}
+.dashboard hr {
+    width: 60%;
+    height: 1px;
+    background: #eee;
+    margin-left: 0;
+    margin-top: 20px;
+}
+.sectitle {
+    font-size: 20px;
+    color: #777;
+    margin: auto;
+    float: left;
+}    
+.sectitle i {
+    margin-right: 10px;
+    color: #fff;
+    padding: 10px;
+    background: var(--color);
+    border-radius: 10px;
+}
+.addwidget {
+    float: right;
+    top: 3px;
+    margin-right: 60px;
+    padding: 13px 20px;
+    box-shadow: var(--btnshadow);
+}
+.addwidget:hover {
+    box-shadow: var(--btnhover);
+}
+.addwidget i {
+    font-size: 14px;
+    margin-right: 10px;
+}
+.greeting {
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 20px;
+    font-weight: 500;
+}
+.dashdate {
+    position: relative;
+    display: block;
+    font-size: 15px;
+    color: var(--color);
+    margin-top: 10px;
+}
+.dashdate i {
+    margin-right: 10px;
+}
+
+.dashbox {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    background: rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    float: left;
+    margin: 10px 20px;
+    margin-left: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.dashinv {
+    overflow: visible;
+}
+.dashbox h6 {
+    color: #555;
+    font-size: 17px;
+    float: none;
+}
+.dashbox h6 i {
+    margin-right: 10px;
+}
+.dashsmall {
+    width: 270px;
+    height: 150px;
+    overflow: hidden;
+}
+.dashsmall:hover {
+    box-shadow: 0 1px 25px rgba(0,0,0,0.2);
+}
+.dashsmall h6 {
+    color: #fff;
+}
+
+.dashsmall:nth-of-type(3) {
+    background: linear-gradient(324deg, rgba(6,82,252,1) 0%, rgba(3,216,241,1) 100%);
+}
+.dashsmall:nth-of-type(4) {
+    background: linear-gradient(324deg, rgba(254,185,45,1) 0%, rgba(255,125,4,1) 100%);
+}
+.dashsmall:nth-of-type(5) {
+    background: var(--grad);
+} 
+.dashsmall:nth-of-type(6) {
+    background: linear-gradient(324deg, rgba(254,45,151,1) 0%, rgba(255,4,47,1) 100%);
+}
+.dashsmall h6 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    float: left;
+    z-index: 10;
+} 
+.dashsmall i {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+    left: 20px;
+    bottom: 40px;
+    opacity: 0.85;
+    z-index: 10;
+}
+.dashsmall h1 {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 400;
+    z-index: 10;
+}    
+.dashsmall small {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+}
+.dashsmall small i {
+    font-size: 12px;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    left: 5px;
+} 
+.dashsmall small:hover i {
+    left: 10px;
+} 
+.dashwaves {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    opacity: 0.06;
+    border-radius: 40px;
+    border-bottom-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    top: 0;
+    z-index: 0;
+}
+.dashsmall:nth-of-type(3) .dashwaves {
+    transform: rotate(45deg);
+    left: 100px;
+}
+.dashsmall:nth-of-type(4) .dashwaves {
+    transform: rotate(105deg);
+    left: 100px;
+} 
+.dashsmall:nth-of-type(5) .dashwaves {
+    transform: rotate(-305deg);
+    left: -90px;
+}
+.dashsmall:nth-of-type(6) .dashwaves {
+    transform: rotate(-245deg);
+    left: 75px;
+    opacity: 0.1;
+}
+
+.dashlarge {
+    width: 1140px;
+    height: 450px;
+    padding: 30px;
+}
+.dashleft {
+    position: relative;
+    float: left;
+    width: 20%;
+}
+.dashright {
+    position: relative;
+    float: right;
+    width: 72%;
+    height: 100%;
+}
+.dashleft small, .dashupdate small, .dashinv small {
+    color: #aaa;
+    display: block;
+}
+.dashleft span {
+    font-size: 12px;
+    color: #aaa;
+}
+.dashleft h2 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 27px;
+}
+.dashleft button {
+    font-size: 13px;
+    padding: 10px 20px;
+    box-shadow: var(--btnshadow);
+}
+.dashleft button:hover {
+    box-shadow: var(--btnhover)
+}
+
+.dashinv, .dashupdate {
+    padding: 30px;
+    height: 520px;
+}
+.dashupdate {
+    width: 400px;
+}  
+.dashpie {
+    width: 420px;
+    height: 500px;
+}
+.dashinv {
+    width: 720px;
+}
+.dashadd {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+}
+.dashadd button i {
+    margin-right: 5px;
+}
+.dashadd button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    box-shadow: var(--btnshadow);
+}
+.dashadd button:hover {
+    box-shadow: var(--btnhover);
+}
+.dashact {
+    padding: 10px;
+    padding-bottom: 7px;
+    background: #eee;
+    margin: auto 5px;
+    border-radius: 10px;
+    color: #555;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.dashact:hover {
+    background: #e5e5e5;
+} 
+.dashadd input {
+    float: right;
+    height: 40px;
+    border: none;
+    background: #eee;
+    border-radius: 40px;
+    padding: 5px 15px;
+    margin-right: 5px;
+    transition: all 0.3s;
+}
+.dashadd input:focus {
+    background: #e5e5e5;
+}
+.dashadd input::placeholder {
+    color: #aaa;
+}
+.dashbar {
+    width: 700px;
+    height: 500px;
+}
+.geninv {
+    float: right;
+    padding-top: 12px;
+    padding-bottom: 8px;
+}
+ 
+table {
+    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+table thead tr {
+    background: var(--color);
+    border-radius: 10px;
+}
+table#estimtable thead tr {
+    background: #032f4a
+}
+table tr {
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s;
+}
+table tbody tr:hover {
+    background: #f5f5f5;
+}
+table tbody tr:last-child:hover {
+    background: none;
+} 
+table thead tr:hover {
+    background: var(--color);
+}
+table th {
+    font-weight: 500;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+}
+table td {
+    font-size: 14px;
+    color: #555;
+    padding: 10px;
+    padding-left: 15px;
+    font-weight: 500;
+}
+table [data-status] span {
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+    width: 80px;
+    cursor: pointer;
+} 
+table td[data-status="ongoing"] > span {
+    background: #ffb300;
+}
+table td[data-status="process"] > span {
+    background: #ff0ab1;
+} 
+table td[data-status="paid"] > span {
+    background: #32e800;
+}
+.dashtable td:focus {
+    outline: 1px dotted var(--color);
+} 
+.dashtable td:hover {
+    background: #f5f5f5;
+}
+table td br {
+    display: none;
+}
+
+.invoices {
+    position: relative; 
+    display: none;
+    width: 100%;
+}
+.invoices .grid {
+    padding: 40px 0;
+}
+.invbox, .estimbox {
+    position: relative;
+    width: 550px; 
+    box-shadow: var(--wideshadow);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.invbox h4, .invboxsmall h4, .estimbox h4, .estimboxsmall h4 {
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+}
+.invbox ul, .invboxsmall ul, .estimbox ul, .estimboxsmall ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+}
+.invbox ul h6, .invboxsmall ul h6, .estimbox ul h6, .estimboxsmall ul h6 {
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    padding-bottom: 10px;
+    float: left;
+} 
+.invbox ul li, .invboxsmall ul li, .estimbox ul li, .estimboxsmall ul li {
+    color: #eee;
+    font-size: 15px;
+    clear: both;
+    padding: 5px;
+    
+}
+.invbox ul li i, .invboxsmall ul li i, .estimbox ul li i, .estimboxsmall ul li i {
+    margin-right: 10px;
+    width: 20px;
+}
+.invbox ul li span, .invboxsmall ul li span, .estimbox ul li span, .estimboxsmall ul li span {
+    float: right;
+    top: 2px;
+}
+.invbox button, .estimbox button {
+    background: #fff;
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    color: #333;
+    padding: 10px 20px;
+    box-shadow: var(--btnshadow);
+}
+.invbox button:hover, .estimbox button:hover {
+    background: var(--color);
+    color: #fff;
+}  
+.invboxsmall, .estimboxsmall {
+    position: relative;
+    width: 350px; 
+    box-shadow: var(--wideshadow);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: linear-gradient(324deg, rgba(119,0,255,1) 0%, rgba(41,4,255,1) 100%);
+    float: left;
+    margin: 20px 30px;
+    margin-left: 0;
+    transform: scale(0.9);
+    transition: all 0.3s;
+    display: none;
+    cursor: pointer;
+} 
+.estimboxsmall, .estimbox {
+    background: #032f4a;
+}
+.invboxsmall:hover, .estimboxsmall:hover {
+    box-shadow: 0px 1px 30px rgba(0,0,0,0.6);
+}
+.estimates .estimboxsmall, .clients .estimboxsmall {
+    display: block;
+}
+.invbox .fa-ellipsis-h, .estimbox .fa-ellipsis-h {
+    display: none;
+}
+.invboxsmall .fa-ellipsis-h, .estimboxsmall .fa-ellipsis-h {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 100;
+}
+.invboxsmall h4, .estimboxsmall h4 {
+    font-size: 20px;
+}
+.invboxsmall ul h6, .estimboxsmall ul h6 {
+    font-size: 14px;
+}
+.invboxsmall button, .estimboxsmall button {
+    display: none;
+}
+
+.projcont {
+    position: relative;
+    width: 1100px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    display: none;
+}
+.projcont table {
+    box-shadow: var(--shadow);
+    margin: 40px auto;
+    margin-left: 0;
+    width: 1000px;
+    background: rgba(255,255,255,0.6);
+}
+.projcont table td {
+    color: #777;
+    outline: none;
+}
+table td [type="date"] {
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #777;
+    font-weight: 600;
+    cursor: pointer;
+}
+.projcont table tr:last-child input {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    padding: 20px 10px;
+    color: #777;
+    font-weight: 700;
+    font-size: 14.5px;
+    width: 100px;
+}
+.projcont table tr:last-child td {
+    padding: 0;
+}
+.projcont table tr:last-child input::placeholder {
+    color: #aaa;
+}
+.projcont table tr:last-child button {
+    padding: 5px 10px;
+} 
+.projcont table tr:last-child button:hover {
+    opacity: 0.8;
+}
+.projcont table thead tr:hover {
+    background: var(--color);
+}
+
+.projcont table .fa-file-invoice-dollar {
+    font-size: 20px;
+    color: var(--color);
+    padding: 5px;
+    cursor: pointer;
+}
+.projcont table th:first-child {
+    padding-left: 15px;
+}
+.projcont table td:first-child {
+    width: 80px;
+}
+.projcont .datetd {
+    width: 140px;
+} 
+.tabletools {
+    position: relative;
+    clear: both;
+}
+.tabletools input {
+    border: none;
+    background: #fff;
+    border-radius: 40px;
+    padding: 12px 15px;
+    margin-right: 20px;
+    box-shadow: var(--shadow);
+}
+.tabletools input::placeholder {
+    color: #aaa;
+}
+.tabletools button {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #555;
+    font-size: 18px;
+    box-shadow: var(--shadow);
+}
+.tabletools button:hover {
+    background: #f1f1f1;
+}
+.savebtn {
+    padding: 10px 20px;
+    box-shadow: var(--btnshadow);
+}
+.savebtn:hover {
+    box-shadow: var(--btnhover);
+}
+.savebtn i {
+    margin-right: 10px;
+}
+
+.edittd {
+    position: absolute;
+    transform: translate(20px,0px);
+    color: var(--color);
+    font-size: 11px;
+    padding: 5px;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    opacity: 0;
+    cursor: pointer;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+} 
+.projcont table td:hover .edittd, .inveditable:hover .edittd {
+    opacity: 1;
+}
+.projcont table th, .invoicewindow table th {
+    text-align: left;
+}
+.projcont table th i {
+    cursor: pointer;
+    float: right;
+    top: 3px;
+    left: -10px; 
+    opacity: 0;
+    transition: all 0.1s;
+}
+.projcont table th:hover i {
+    opacity: 1;
+}
+.projcont table td:last-child .fa-angle-down {
+    float: right;
+    top: 3px;
+    font-size: 18px;
+    border-radius: 100%;
+    background: #ddd;
+    padding: 4px 7px;
+    color: #333;
+    opacity: 0;
+} 
+.projcont table tr:hover td:last-child .fa-angle-down {
+    opacity: 1;
+}
+
+.projcont table .rowopt {
+    color: #fff;
+    float: right;
+    left: -10px;
+    top: 4px;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+
+.statusdrop {
+    position: absolute;
+    transform: translate(-35px,-5px);
+    padding: 10px;
+    width: 160px;
+    box-sizing: border-box;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    z-index: 100;
+    background: #fff;
+    transition: all 0.3s;
+}
+.statusdrop span {
+    margin: 10px auto;
+    transition: all 0.3s;
+    min-width: 120px;
+}
+.statusdrop span:hover {
+    border: 1px solid #ddd;
+}
+.statusdrop small {
+    text-align: center;
+    display: block;
+    font-weight: 500; 
+    color: #333;
+    margin-top: 20px;
+}
+.statusdropnav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    top: 50px;
+}
+table div[data-status="ongoing"] span {
+    background: #ffb300;
+}
+table div[data-status="process"] span {
+    background: #ff0ab1;
+} 
+table div[data-status="paid"] span {
+    background: #32e800;
+} 
+
+.rowoptions {
+    position: absolute;
+    transform: translate(20px,-5px);
+    padding: 10px;
+    min-width: 170px;
+    box-sizing: border-box;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    z-index: 900;
+    background: #fff;
+    transition: all 0.3s;
+} 
+.rowoptions h6 {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+.rowoptions h6:hover {
+    background: #f5f5f5;
+}
+.rowoptions h6 i {
+    margin-right: 10px;
+}
+
+.invoicewindow {
+    position: fixed;
+    display: none;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 700px;
+    width: 900px;
+    z-index: 9999;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: var(--wideshadow);
+    transition: all 0.5s;
+    overflow: hidden;
+    overflow-y: scroll;
+} 
+.invinner {
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+.invoicewindow .close {
+    top: 23px;
+    right: 20px;
+    color: #fff;
+}
+.invbg {
+    position: relative;
+    width: 100%;
+    height: 100px;
+} 
+.invinner h2 {
+    font-size: 28px;
+}
+.invinner h2 span {
+    font-weight: 500;
+    top: 1.4px;
+}
+.invinner h6 {
+    color: #777;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.invoicewindow td:last-child {
+    width: 170px;
+}
+
+.invleft {
+    position: relative;
+    float: left;
+    width: 45%;
+}
+.invright {
+    position: relative;
+    float: right;
+    width: 45%;
+    text-align: right;
+}
+.invinner table {
+    margin-top: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+.invinner td:focus {
+    outline: 1px dotted var(--color);
+}
+.totalcont, .custommsg {
+    position: relative;
+    margin-top: 20px;
+}
+.totalcont h5 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 5px;
+}
+.totalcont h6 {
+    margin: auto;
+    margin-bottom: 10px;
+}
+.totalcont h4 {
+    font-size: 22px;
+    color: #555;
+}
+.totalcont em {
+    position: relative;
+    margin-right: 2px;
+    font-style: normal;
+}
+.totalcont hr {
+    width: 200px;
+    background: #ccc;
+    height: 1px;
+    margin-left: 0;
+}
+
+.totalcont {
+    float: left;
+}
+.custommsg {
+    float:right;
+}
+.custommsg textarea {
+    position: relative;
+    border: 1px solid #ddd;
+    max-width: 300px;
+    max-height: 200px;
+    width: 300px;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    top: -20px;
+}
+.custommsg h4 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+.invoicewindow button {
+    margin: 20px;
+    margin-left: 0;
+    padding: 10px 20px;
+    box-shadow: var(--btnshadow);
+}
+.invoicewindow button:hover {
+    box-shadow: var(--btnhover);
+}
+.updateinv {
+    float: left;
+} 
+.invoicewindow .minimize {
+    top: 25px;
+    right: 70px;
+    padding: 5px;
+}
+
+.notifdiv {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: var(--wideshadow);
+    border-radius: 40px;
+    background: var(--grad);
+    transition: all 0.3s;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 15px 20px;
+    color: #fff;
+    transform: scaleX(0.4);
+} 
+.notifdiv p {
+    font-size: 14px;
+    margin: auto;
+    text-align: left;
+    top: 2px;
+    float: left;
+    margin-right: 30px;
+    transform: scaleX(1.6);
+    transition: all 0.3s;
+}
+.notifdiv .close {
+    position: relative;
+    transform: scale(1);
+    float: left;
+    margin-right: 30px;
+}
+.notifdiv button {
+    float: right;
+    padding: 10px 20px;
+    background: #fff;
+    color: var(--color);
+    box-shadow: var(--btnshadow);
+} 
+.notifdiv button:hover {
+    box-shadow: var(--btnhover);
+}
+
+.tablediv {
+    position: relative;
+    top: -10px;
+    margin: 50px auto;
+    transition: all 0.3s;
+}
+.tabletitle {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 500;
+    float: left;
+    padding: 10px;
+    padding-left: 0;
+    transition: all 0.3s;
+}
+.tabletitle:focus {
+    padding: 10px;
+    padding-right: 30px;
+    outline: 1px dotted var(--color);
+}
+
+.sidebar .newbox {
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    width: 350px;
+    height: 360px;
+    margin: auto;
+    border-radius: 40px;
+    box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+    background: #fff;
+    transition: all 0.3s;
+    z-index: 100;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor:default;
+}
+.newbox h4 {
+    font-size: 20px;
+    color: #777;
+    margin-bottom: 40px;
+}
+.newbox input {
+    padding: 15px 20px;
+    min-width: 250px;
+    font-size: 16px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 40px;
+}
+.newbox input::placeholder {
+    color: #aaa;
+    font-weight: 100;
+}
+.newbox input:focus {
+    background: #f1f1f1;
+}
+.projcolorpick {
+    margin-top: 30px;
+    text-align: left;
+}
+.projcolorpick h6 {
+    color: #777;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 10px;
+}
+.newbox .projcolorpick div {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    box-shadow: var(--shadow);
+    margin: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    transform: scale(1);
+}
+
+.projcolorpick [data-color="1"] {
+    background: linear-gradient(324deg, rgba(6,82,252,1) 0%, rgba(3,216,241,1) 100%);
+}
+.projcolorpick [data-color="2"] {
+    background: linear-gradient(324deg, rgba(254,185,45,1) 0%, rgba(255,125,4,1) 100%);
+}
+.projcolorpick [data-color="3"] {
+    background: linear-gradient(324deg, rgba(119,0,255,1) 0%, rgba(41,4,255,1) 100%);
+}
+.projcolorpick [data-color="4"] {
+    background: linear-gradient(324deg, rgba(254,45,151,1) 0%, rgba(255,4,47,1) 100%);
+} 
+.projcolorpick [data-color="5"]{
+    background: linear-gradient(324deg, #9ebd13 0%, #008552 100%);
+} 
+.projcolorpick [data-color="6"] {
+    background: linear-gradient(324deg, #4b6cb7 0%, #182848 100%);
+} 
+.projcolorpick [data-color="7"] {
+    background: linear-gradient(324deg, rgba(108,104,82,1) 0%, rgba(196,154,0,1) 100%);
+}
+.projcolorpick [data-color="8"] {
+    background: linear-gradient(90deg, rgba(0,31,97,1) 0%, rgba(0,157,169,1) 100%);
+}
+.projcolorpick [data-color="9"] {
+    background: linear-gradient(90deg, rgba(58,109,255,1) 0%, rgba(116,66,255,1) 100%);
+}
+.projcolorpick [data-color="10"] {
+    background: linear-gradient(90deg, rgba(161,0,172,1) 0%, rgba(181,0,53,1) 100%);
+}
+
+
+.sidecont .newbox button {
+    box-shadow: 0px 20px 26px -11px rgba(119,0,255,0.3);
+    margin-top: 0px;
+    padding: 15px 20px;
+}
+.sidecont .newbox button:hover {
+    box-shadow: 0px 25px 26px -11px rgba(119,0,255,0.4);
+}
+
+.boxmenu {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    border-radius: 10px;
+    box-shadow: var(--wideshadow);
+    background: #fff;
+    overflow: hidden;
+    z-index: 100;
+    transition: all 0.3s;
+}
+.boxmenu h6 {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    padding: 10px 40px;
+    padding-left: 20px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.boxmenu h6:hover {
+    background: #f1f1f1;
+}
+.boxmenu h6 i {
+    margin-right: 10px;
+}
+
+.addinvbtn, .addestim, .addclient {
+    float: right;
+    padding: 13px 20px;
+    box-shadow: var(--btnshadow);
+}
+.addinvbtn:hover, .addestim:hover, .addclient:hover {
+    box-shadow: var(--btnhover);
+}
+.addinvbtn i, .addestim i, .addclient i {
+    margin-right: 10px;
+}
+
+.projcont table .fa-check-circle {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #ccc;
+    float: right;
+    top: 1px;
+    transition: all 0.2s;
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 100;
+}
+.statusbar {
+    position: relative;
+    float: left;
+    height: 100%;
+    top: 15px;
+}
+.statusbar i {
+    margin: auto 5px;
+    padding: 7px;
+    font-size: 17px;
+    color: var(--color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.statusbar i:hover {
+    transform: scale(1.1);
+}
+.statusbar small {
+    color: var(--color);
+    margin-right: 10px;
+    font-size: 15px;
+}
+.statusbar .cancelselect {
+    padding: 5px 10px;
+    margin-left: 20px;
+    box-shadow: var(--btnshadow);
+}
+.statusbar .cancelselect:hover {
+    box-shadow: var(--btnhover);
+}
+
+.quickprojects {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 500px;
+    width: 50px;
+    transform: rotate(-180deg);
+    z-index: 100;
+}
+.projball {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    box-shadow: var(--wideshadow);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: none;
+    transform: scale(0.9);
+    text-align: center;
+}
+.projball span {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    transform: rotate(180deg);
+}
+.projball small {
+    position: absolute;
+    top: 7px;
+    left: 30px;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 12px;
+    color: #fff;
+    padding: 4px 10px;
+    background: var(--grad);
+    transform: rotate(180deg);
+    border-radius: 40px;
+    transition: all 0.3s;
+    white-space: nowrap;
+} 
+.projball:hover small {
+    visibility: visible;
+    opacity: 1;
+    left: 45px;
+}
+
+.igrid {
+   position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px 0;
+}
+
+.dashupdateinner > div {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 15px auto;
+    border-bottom: 1px solid #eee;
+}
+.dashupdateinner > div:last-child {
+    border: none;
+}
+.dashupdateinner > div h5 {
+    color: var(--color);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.dashupdateinner > div h6 {
+    color: #999;
+    font-size: 13px;
+    margin-left: 27px;
+    margin-bottom: 5px;
+}
+.dashupdateinner > div small {
+    color: #a5a5a5;
+    display: block;
+    margin-left: 27px;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+.dashupdateinner > div i {
+    margin-right: 10px;
+}
+.dashupdateinner .fa-circle-notch {
+    background: var(--txtgrad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.dashupdate .updateline {
+    position: absolute;
+    left: 15px;
+    width: 3px;
+    background: var(--grad);
+    height: 400px;
+    border-radius: 40px;   
+}
+
+/* iOS Style Button */
+.form-switch{display:inline-block;cursor:pointer;-webkit-tap-highlight-color:transparent}.form-switch i{position:relative;display:inline-block;margin-right:.5rem;width:46px;height:26px;background-color:#e6e6e6;border-radius:23px;vertical-align:text-bottom;transition:all .3s linear}.form-switch i::before{content:"";position:absolute;left:0;width:42px;height:22px;background-color:#fff;border-radius:11px;transform:translate3d(2px,2px,0) scale3d(1,1,1);transition:all .25s linear}.form-switch i::after{content:"";position:absolute;left:0;width:22px;height:22px;background-color:#fff;border-radius:11px;box-shadow:0 2px 2px rgba(0,0,0,.24);transform:translate3d(2px,2px,0);transition:all .2s ease-in-out}
+.form-switch:active i::after{width:28px;transform:translate3d(2px,2px,0)}.form-switch:active input:checked+i::after{transform:translate3d(16px,2px,0)}.form-switch input{display:none}.form-switch input:checked+i{background:var(--grad)}.form-switch input:checked+i::before{transform:translate3d(18px,2px,0) scale3d(0,0,0)}.form-switch input:checked+i::after{transform:translate3d(22px,2px,0)}
+ 
+ 
+.settingsslide {
+    position: absolute;
+    top: 0;
+    left: 90px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+    display: none;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.settingsslide .close {
+    color: #000;
+    top: 33px;
+    right: 20px;
+}
+.settingstitles {
+    margin-bottom: 50px;
+}
+.settingstitles h3 {
+    color: #333;
+}
+.settingstitles h6 {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 5px;
+    font-weight: 500;
+}  
+.settingsinner {
+    position: relative;
+}
+.settingsinner > div {
+    position: relative;
+    display: block;
+    margin: 8px auto;
+    padding: 15px 10px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.settingsinner > div:hover {
+    background: #f5f5f5;
+}
+.settingsinner > div h4 {
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.settingsinner > div h4 i {
+    margin-right: 10px;
+}
+.settingscont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    margin-bottom: 50px;
+    display: none;
+}
+.boxsec h4 {
+    font-size: 20px;
+    color: #555;
+}
+.boxsec h6 {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+.boxsec {
+    position: relative;
+    margin: 12px 5px;
+    position: relative;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    float: left;
+}
+.boxsec:last-child {
+    margin-bottom: 50px;
+}
+.boxsecprof {
+    width: 35%;
+    height: 100%;
+}
+.boxsecprof {
+    text-align: center;
+}
+.boxsec65 {
+    width: 62%;
+    float: right;
+}
+.boxsec35 {
+    width: 35%;
+}
+.boxtitles {
+    margin-bottom: 30px;
+}
+.boxsec input {
+    position: relative;
+    margin-top: 12px;
+    border: none;
+    background: none;
+    padding: 15px 12px;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+    font-size: 15px;
+}
+.boxsec label:not(.form-switch) {
+    display: inline-table;
+    width: 45%;
+    position: relative;
+    margin: 20px;
+    margin-left: 0;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.boxsec label small {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: #aaa;
+    font-weight: 100;
+    font-size: 11px;
+    z-index: 100;
+}  
+.boxsec button {
+    padding: 15px 25px;
+    margin-top: 20px;
+    background: var(--grad);
+    display: block;
+    box-shadow: 0px 20px 26px -11px rgba(119,0,255,0.3);
+}
+.boxsec button:hover {
+    box-shadow: 0px 20px 30px -11px rgba(119,0,255,0.5);
+}
+
+.profimg {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 1px solid #eee;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 40px;
+}
+.profimg i {
+    position: relative;
+    color: #aaa;
+    font-size: 20px;
+}
+.boxdiv {
+    display: block;
+    width: 35%;
+    position: relative;
+    margin: 20px;
+    margin-left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    display: table;
+}
+.boxdiv h5 {
+    float: left;
+    font-size: 15px;
+    color: #333;
+    top: 3px;
+}
+.boxdiv label {
+    float: right;
+}
+.boxsecprof .jobtitlefill {
+    color: #bbb;
+}
+.boxsecprof button {
+    padding: 10px 20px;
+    margin: 30px auto;
+}
+.boxsecprof button:last-child {
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 0px 2px rgba(0,0,0,0.05);
+    color: #333;
+}
+.boxsecprof button:last-child:hover {
+    background: #fafafa;
+}
+.profnumbers {
+    position: relative;
+    margin: 40px auto;
+}
+.profnumbers h5 {
+    font-size: 21px;
+    color: #333;
+    font-weight: 900;
+    display: inline-table;
+    margin: auto 20px;
+}
+.profnumbers h5 span{
+    display: block;
+    font-size: 12px;
+    color: #bbb;
+}
+.boxsecprof textarea {
+    position: relative;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: none;
+    min-width: 100%;
+    padding: 10px;
+    max-height: 200px;
+    min-height: 50px;
+    height: 100px;
+    font-family: Lato;
+    transition: all 0.2s;
+    font-size: 15px;
+}
+.boxsecprof textarea::placeholder {
+    font-size: 14px;
+    color: #bbb;
+}
+.boxsecprof textarea:focus {
+    border-color: var(--color);
+}
+.boxsec p {
+    color: #333;
+    font-size: 15px;
+}
+.boxsec p i {
+    margin-right: 10px;
+}
+.boxsec a {
+    font-size: 14px;
+}
+.boxsec hr {
+    width: 70%;
+    height: 1px;
+    background: #eee;
+    margin: 10px auto;
+    margin-top: 30px;
+}
+.boxsecdiv h5 {
+    font-size: 15px;
+    top: 4px;
+    color: #333;
+    float: left;
+    margin-right: 100px;
+    font-weight: 500;
+}
+.boxsecdiv {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    margin-left: 0;
+    clear: both;
+}
+.boxsecdiv .form-switch {
+    float: right;
+}
+.boxsecdiv label:not(.form-switch), .boxsecdiv select {
+    position: relative;
+    float: right;
+    width: 200px;
+    top: -10px;
+}
+.boxsecdiv .form-switch {
+    top: 3px;
+}
+.boxsecdiv select {
+    padding: 15px;
+    border: 1px solid #eee;
+    color: #555;
+}
+.boxsecdiv select:focus {
+    border: 1px solid var(--color);
+}
+.boxsec ul li {
+    padding: 5px 0;
+    margin: 10px auto;
+    font-size: 15px;
+    color: #333;
+}
+.boxsec ul li i {
+    margin-right: 10px;
+}
+ 
+
+.estimates, .clients, .calendar {
+    display: none;
+}
+.estimcolor1 {
+    background: #001E30
+}
+.projselect {
+    position: absolute;
+    left: 30px;
+    width: 100px;
+    height: 200px;
+    transition: all 0.3s;
+    display: none;
+    transform: scale(0.8) translateY(-130px);
+}
+.sidecont .projselect i {
+    position: absolute;
+    border-radius: 100%;
+    padding: 10px;
+    display: block;
+    background: var(--grad);
+    font-size: 18px;
+    box-shadow: var(--wideshadow);
+    color: #fff;
+    cursor: pointer;
+}
+.projselect i:hover {
+    transform: scale(1.1);
+}
+.projselect small {
+    display: none;
+}
+.addprojinv {
+    top: 0;
+    right: 10px;
+}
+.addprojestim {
+    top: 80px;
+    right: 0;
+}
+.addprojclient {
+    top: 160px;
+    right: 10px;
+}
+
+
+
+
+
+
+
+@media (max-width: 1600px) {
+    .sidecont {
+        padding-top: 10px;
+    }
+    .sidecont .menuicon:first-child {
+        margin-top: 10px;
+    }
+    .addprojbtncont {
+        margin-top: 0;
+    }
+    .addprojbtn {
+        padding: 15px;
+    }
+    .proftab img {
+        bottom: 10px;
+        width: 40px; 
+        height: 40px;
+    }
+}
+
+@media (max-width:1500px) {
+    .grid {
+        width: 70%;
+    }
+    .dashlarge {
+        width: 100%;
+    }
+    .dashinv {
+        width: 100%;
+    }
+    .dashbar {
+        width: 100%;
+        height: auto;
+    }
+    .addwidget {
+        margin: auto;
+    }
+    
+}
+
+@media (max-width:1350px) {
+    .grid {
+        width: 80%;
+        float: right;
+        margin-right: 30px;
+    }
+    .home {
+        width: 100%;
+    }
+    .dashbox:not(.dashsmall) {
+        width: 100%;
+    }
+    .dashupdate {
+        height: 300px;
+    }
+    .dashpie {
+        height: auto;
+    }
+}
+    
+@media (max-width:1100px) {
+    .home {
+        width: 100%;
+    }
+    .dashbox:not(.dashsmall) {
+        width: 100%;
+    }
+    .dashbar canvas {
+        height: auto!important;
+    }
+    
+}
+@media (max-width:1000px) {
+    .sidebar {
+        left: -70px;
+        height: 400px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .sidecont, .logo {
+        display: none;
+    }
+    .sidebar .sidebargripcont {
+        display: block;
+    }
+    .sidebar:hover {
+        left: -60px;
+    }
+    .grid {
+        width: 80%;
+        float: none;
+        margin-right: auto;
+    }
+    .dashleft,.dashright {
+        width: 100%;
+        float: none;
+        margin-bottom: 30px 
+    }
+    .dashleft br {
+        display: none;
+    }
+    .dashleft h6, .dashleft h2 {
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 0;
+    }
+    .dashleft span {
+        margin-right: 20px;
+    }
+    .dashlarge {
+        height: auto;
+    }
+    .dashleft button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .dashleft small {
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media (max-width:860px) {
+    .dashinv {
+        height: auto;
+    }
+    
+}
+
+@media (max-width:800px) {
+    nav {
+        width: 80%;
+    }
+    .searchdiv {
+        width: 200px;
+        margin-left: 20px;
+    }
+    .searchdiv input {
+        width: 170px;
+    }
+}
+
+/*Max-heights*/
+@media (max-height: 800px) {
+    .invoicewindow {
+        height: 95vh;
+    }
+
+}
+@media (max-height: 700px) {
+    .sidebar .proftab {
+        display: none;
+    }
+    .home {
+        margin-top: 70px;
+    }
+
+}
+ 
+
