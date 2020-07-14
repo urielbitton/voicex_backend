@@ -11,10 +11,13 @@
     "start": "nodemon server"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "fastify": "^3.0.0",
     "fastify-mongodb": "^2.0.1",
-    "mongodb": "^3.5.9"
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.9",
+    "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
     "husky": "^4.2.5",
