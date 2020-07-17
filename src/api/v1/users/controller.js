@@ -17,9 +17,9 @@ exports.signUp = async (req, res) => {
             res.send(new Error(`User account already exists`))
         }
         // hash user password before storing
-        const salt = bcrypt.genSaltSync()
+        const salt = await bcrypt.genSalt()
         const hashedPassword = await bcrypt.hash(password, salt)
-        const newUser = await usersDAO.create({ email: email, password: hashedPassword })
+        const newUser = await usersDAO.create({ email: email, password: hashedPassword , createdAt: new Date()})
         //TO-DO: Standardize successful sign up response
         res.send({ id: newUser.insertedId, email: email })
     } catch (e) {
@@ -61,3 +61,4 @@ exports.login = async (req, res) => {
         return
     }
 }
+
