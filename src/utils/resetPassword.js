@@ -16,5 +16,5 @@ exports.createResetPasswordToken = async (user) => {
     }
 }
 exports.createResetPasswordUrl = (user, token) => {
-    return `http://localhost:3005/users/reset-password/${user.email}/${token}`
+    return `http://localhost:3000/reset-password/${user.email}/${token}`
 }
