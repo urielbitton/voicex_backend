@@ -23,3 +23,11 @@ exports.create = async (user) => {
         throw e
     }
 }
+
+exports.update = async(email, update) => {
+    try {
+        return await users.updateOne({email: email}, update)
+    } catch(e) {
+        throw e
+    }
+}
