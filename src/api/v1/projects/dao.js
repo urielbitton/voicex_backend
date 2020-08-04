@@ -9,6 +9,15 @@ exports.injectDB = async (conn) => {
         console.error(`Unable to establish connection in projectsDAO: ${e}`)
     }
 }
+
+exports.find = async (query = {}) => {
+    try {
+        let cursor = await projects.find(query)
+        return await cursor.toArray()
+    } catch (e) {
+        throw e
+    }
+}
 exports.create = async (project) => {
     try {
         return await projects.insertOne(project)
@@ -19,15 +28,15 @@ exports.create = async (project) => {
 
 exports.update = async (project_id, user_id, update) => {
     try {
-        return await projects.updateOne({ _id: ObjectId(project_id) , user_id: ObjectId(user_id)}, update)
+        return await projects.updateOne({ _id: ObjectId(project_id), user_id: ObjectId(user_id) }, update)
     } catch (e) {
         throw e
     }
 }
 
-exports.delete = async (project_id, user_id) =>{
+exports.delete = async (project_id, user_id) => {
     try {
-        return await projects.deleteOne({_id:ObjectId(project_id), user_id: ObjectId(user_id)})
+        return await projects.deleteOne({ _id: ObjectId(project_id), user_id: ObjectId(user_id) })
     } catch (e) {
         throw e
     }
