@@ -1,5 +1,28 @@
 const { ObjectId } = require('mongodb')
 const projectsDAO = require('./dao')
+
+exports.find = async (req, res) =>{
+    try{
+        const { user_id } = req.params
+        const filter ={user_id: ObjectId(user_id)}
+        const result = await projectsDAO.find(filter)
+        res.send(result)
+        return
+    } catch (e){res.status(500)
+        res.send(e)
+        return}
+}
+exports.findById = async(req, res) =>{
+    try {
+        const { project_id, user_id } = req.params
+        const filter = {_id: ObjectId(project_id), user_id: ObjectId(user_id),}
+        const result = await projectsDAO.find(filter)
+        res.send(result)
+        return
+    } catch (error) {
+        
+    }
+}
 exports.create = async (req, res) => {
     try {
         const project = req.body
