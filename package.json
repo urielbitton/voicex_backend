@@ -17,6 +17,7 @@
     "fastify-mongodb": "^2.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
+    "nodemailer": "^6.4.10",
     "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
