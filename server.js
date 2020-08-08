@@ -3,13 +3,14 @@ const fastify = require('fastify')({ logger: true, maxParamLength: 250 })
 const mongodb = require('mongodb')
 //Declare routes
 fastify.register(require('./src/api/v1/users/routes'), { prefix: '/v1' })
-// fastify.register(require('./src/api/v1/projects/routes'), { prefix: '/v1' })
+fastify.register(require('./src/api/v1/projects/routes'), { prefix: '/v1' })
 
 // Define server and establish MongoDB connection.
 // Connection pool is shared application wide
 const port = process.env.PORT || 3005
 
 const usersDAO = require('./src/api/v1/users/dao')
+const projectsDAO  = require('./src/api/v1/projects/dao')
 const start = async () => {
     mongodb.MongoClient.connect(
         process.env.MONGO_DB_URI,
@@ -23,6 +24,7 @@ const start = async () => {
         fastify.register(require('fastify-mongodb'), { client: client })
         .register(async function (fastify, opts, next) {
             await usersDAO.injectDB(client)
+            await projectsDAO.injectDB(client)
             next()
         })
         await fastify.listen(port)
