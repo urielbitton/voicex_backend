@@ -28,8 +28,8 @@ exports.create = async (req, res) => {
         const project = req.body
         const { user_id } = req.params
         const data = Object.assign({}, { user_id: ObjectId(user_id) }, project, { last_modified: new Date() })
-        await projectsDAO.create(data)
-        res.send(data)
+        const {ops} = await projectsDAO.create(data)
+        res.send(ops)
     } catch (e) {
         res.status(500)
         res.send(e)
