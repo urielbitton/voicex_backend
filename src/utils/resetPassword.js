@@ -9,7 +9,7 @@ exports.createResetPasswordToken = async (user) => {
         const token = await jwt.sign({user: user.email}, payload, {
             expiresIn: 3600 // 1 hour
         })
-        await usersDAO.update(user.email, {$set:{reset_token: token}})
+        await usersDAO.update(user._id, {$set:{reset_token: token}})
         return token
     } catch (err) {
         throw new Error(err)
