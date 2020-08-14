@@ -60,7 +60,6 @@ exports.update = async (req, res) => {
                 invoice_number, client_name, invoice_total, balance, due_date, status, currency
             }
         }
-        console.log(update)
         const result = await invoicesDAO.update(invoice_id, project_id, user_id, update)
         const { n, ok } = result.result
         const { modifiedCount } = result

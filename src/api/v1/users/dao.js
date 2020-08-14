@@ -1,3 +1,5 @@
+const { ObjectId } = require("mongodb")
+
 let users
 exports.injectDB = async (conn) => {
     if (users) return
@@ -8,9 +10,9 @@ exports.injectDB = async (conn) => {
     }
 }
 
-exports.findOne = async (email) => {
+exports.findOne = async (query = {}) => {
     try {
-        return await users.findOne({ email: email })
+        return await users.findOne(query)
     } catch (e) {
         throw e
     }
@@ -24,10 +26,19 @@ exports.create = async (user) => {
     }
 }
 
-exports.update = async(email, update) => {
+exports.update = async(user_id, update) => {
     try {
-        return await users.updateOne({email: email}, update)
+        return await users.updateOne({_id: ObjectId(user_id)}, update)
     } catch(e) {
         throw e
+    }
+}
+
+
+exports.aggregate = async( pipeline) =>{
+    try {
+        return await users.aggregate(pipeline).toArray()
+    } catch (e) {
+       throw e 
     }
 }
