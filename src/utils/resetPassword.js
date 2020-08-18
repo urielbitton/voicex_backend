@@ -16,5 +16,6 @@ exports.createResetPasswordToken = async (user) => {
     }
 }
 exports.createResetPasswordUrl = (user, token) => {
-    return `http://localhost:3000/reset-password/${user.email}/${token}`
+    const domain = process.env.APP_DOMAIN
+    return `${domain}reset-password/${user.email}/${token}`
 }
