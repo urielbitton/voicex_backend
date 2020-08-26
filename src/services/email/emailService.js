@@ -1,30 +1,18 @@
-const nodemailer = require('nodemailer')
+const sgMail = require('@sendgrid/mail')
 
+sgMail.setApiKey(process.env.SENDGRID_KEY)
 exports.sendEmail = async (email, subject, html) => {
     try {
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: 465,
-            secure: true,
-            requireTLS: true,
-            tls: {
-                rejectUnauthorized: false
-            },
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASSWORD
-            }
-        })
         if (email && subject && html) {
-            await transporter.sendMail({
-                from: process.env.EMAIL_USER,
+            const msg = {
                 to: email,
+                from: process.env.EMAIL_USER,
                 subject: subject,
-                html: html // html body
-            })
-        }
-        else {
+                html: html
+            }
+            //send email using SendGrid
+            sgMail.send(msg)
+        } else {
             throw new Error(`Email parameters not provided`)
         }
         return
