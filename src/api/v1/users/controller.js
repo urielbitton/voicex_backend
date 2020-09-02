@@ -25,8 +25,10 @@ exports.signUp = async (req, res) => {
         const salt = await bcrypt.genSalt()
         const hashedPassword = await bcrypt.hash(password, salt)
         const newUser = await usersDAO.create({ email: email, password: hashedPassword, createdAt: new Date() })
-        //TO-DO: Standardize successful sign up response
-        res.send({ id: newUser.insertedId, email: email })
+        const token = await jwt.sign({ user: newUser.email }, process.env.SECRET_KEY, {
+            expiresIn: process.env.TOKEN_EXPIRES_IN
+        })
+        res.send({ _id: newUser.insertedId, token: token })
         return
     } catch (e) {
         res.status(500)
