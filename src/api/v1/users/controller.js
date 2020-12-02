@@ -14,6 +14,11 @@ const { ObjectId } = require('mongodb')
 exports.signUp = async (req, res) => {
     try {
         const { email, password } = req.body
+        if (!(email && password)) {
+            res.status(500)
+            res.send(new Error(`Invalid request`))
+            return
+        }
         const existingUser = await usersDAO.findOne({ email: email })
         //TO-DO: Add error constants
         if (existingUser) {

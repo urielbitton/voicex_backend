@@ -1,6 +1,8 @@
 require('dotenv').config()
 const fastify = require('fastify')({ logger: true, maxParamLength: 250 })
 const mongodb = require('mongodb')
+
+fastify.register(require('fastify-cors'))
 //Declare routes
 fastify.register(require('./src/api/v1/users/routes'), { prefix: '/v1' })
 fastify.register(require('./src/api/v1/projects/routes'), { prefix: '/v1' })
